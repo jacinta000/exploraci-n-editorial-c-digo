@@ -72,4 +72,5 @@ tamañoAnchoPágina: width - márgenes * 2
 
 ## links de referencia hasta el momento 
 [tipografía y código](https://thecodingtrain.com/tracks/p5js-2.0/p5js-2.0/typography?utm_source=chatgpt.com)
+
 [workshop abierto de tipografía generativa multinivel](https://github.com/spacetypeco/generative-typography-SP22/tree/main)

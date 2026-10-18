@@ -39,7 +39,9 @@ su tamaño depende del
 * medianiles
 
 su ancho puede expresar como:
+```
 anchoColumna: tamaño ancho página - márgenes - medianil / n° columnas
+```
 
 y las columnas se repiten la cantidad de columnas escogidas dentro del área total, incluyendo el valor de los
 medianiles, el valor del cálculo de su ancho
@@ -52,7 +54,7 @@ por lo tanto, ante el cálculo del ancoColumna, el área que ocupan es su valor 
 total de columnas - 1
 o sea:
 ```
-(x * totalColumnas - 1)
+areaTotalMedianil = (medianil * totalColumnas - 1)
 ```
 
 y entonces:
@@ -69,6 +71,49 @@ por lo tanto para el cálculo del ancho de las columnas, primero hay que determi
 // ocupa el ancho del canvas total 
 tamañoAnchoPágina: width - márgenes * 2
 ```
+y entonces, com se menciona anteriormente 
+```
+anchoColumna: tamañoAnchoPágina - márgenes - areaTotalMedianil / n° columnas
+```
+
+#### 18 oct
+
+### nuevas preguntas
+1. cómo automatizar la ubicación en x según las columnas del archivo?
+2. cómo automatizar ubicación y? indicar ubicación del mouse
+3. establecer distancias, referencia padding de figma
+4. puedo hacer este código una función reutilzable en otros sketch?
+
+### una vez que sabes el ancho de las columnas
+cuando el ancho de las columnas es dinámico con los parámetros y formatos de trabajo establecidos
+podemos identificar dónde empieza una y termina otra dentro de la ubicaciónX a partir de un array
+
+```
+function columnX(index) {
+  return layout.margen +
+    index * (anchoColumna() + layout.medianil);
+}
+```
+que contempla **márgenes, ancho de la columna y medianil** en su cálculo
+
+con esto podemos comenzar a ocupar las columnas como referencia de ubicación en X
+
+### área total
+antes hablamos del [ancho del área total](#ancho-del-área-total) . ahora contemplaremos largo y ancho
+esta es el área de trabajo dentro de los márgenes y forma un rectángulo que comienza en el vértice demarcado por los márgenes superiores y lat izq, y termina en el vértice que marca el valor del margen inferior con el lat derecho.
+
+si todos los márgenes son igual, entonces se puede interpretar así:
+```
+ noFill();
+  stroke(230, 75, 90, 160);
+  rect(
+    layout.margin,
+    layout.margin,
+    width - 2 * layout.margin,
+    height - 2 * layout.margin
+  );
+```
+
 
 ## links de referencia hasta el momento 
 [tipografía y código](https://thecodingtrain.com/tracks/p5js-2.0/p5js-2.0/typography?utm_source=chatgpt.com)

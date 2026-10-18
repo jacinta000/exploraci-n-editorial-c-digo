@@ -113,7 +113,48 @@ si todos los márgenes son igual, entonces se puede interpretar así:
     height - 2 * layout.margin
   );
 ```
+y para dibujar las columnas dentro de esta área:
+```
+  for (let i = 0; i < layout.columnas; i++) {
+    rect(
+      columnX(i),
+      layout.margin,
+      columnWidth(),
+      height - 2 * layout.margin
+    );
+  }
+```
+que dice dibujar rectángulos ubicados en el vértice determinado por donde comienza el cálculo de la columnaX() y el  márgen superior; con un ancho determinado por el cálculo variable del anchoColumna y un alto del total del área total.
 
+### variables globales de una grilla dinámica
+* ancho y alto: dependen de márgenes
+* márgenes (4)
+* medianil
+* cantidad de columnas
+
+#### variables dinámicas
+* alto columna: depende del alto de la grila (altoGrilla())
+* ancho columna: depende del ancho grilla (anchoGrilla()), del valor de medianil (meidanil()), cantidadColumnas
+* columna(i): representa el área de una columna. depende del alto y ancho columna
+
+la ubicación en x puede ser guiada por las columnas(i), siendo capaz de modificarla, cómo se expresa?
+si se declaran variables y cálculos internos, puedo hacer una grilla dinámica que me permita diagramar en p5.js
+
+### texto
+texto() ocupa 4 parámetros:}
+```
+texto(strg, x, y, anchoMáximo, alturaMáxima)
+```
+por lo tanto, para ocuparlo debo declarar:
+* qué debe decir
+* dónde se ubica en x
+* dónde se ubica en y
+* cuántas columnas de ancho ocupará el recuadro de texto
+* y la altura máxima del recuadro de texto
+
+o sea que texto podría ocupar columna(i) para determinar dónde se ubica y cuál es el ancho total del recuadro de texto
+
+podría establecerse dos variables constantes, una que declare el valor de columna(i) como ubicación y otra como largo total y cada vez que se agrega un elemento gráfico, se solicite esa información
 
 ## links de referencia hasta el momento 
 [tipografía y código](https://thecodingtrain.com/tracks/p5js-2.0/p5js-2.0/typography?utm_source=chatgpt.com)

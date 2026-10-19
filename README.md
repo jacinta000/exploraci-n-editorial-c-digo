@@ -160,3 +160,5 @@ podría establecerse dos variables constantes, una que declare el valor de colum
 [tipografía y código](https://thecodingtrain.com/tracks/p5js-2.0/p5js-2.0/typography?utm_source=chatgpt.com)
 
 [workshop abierto de tipografía generativa multinivel](https://github.com/spacetypeco/generative-typography-SP22/tree/main)
+
+[sketch grilla personalizable](https://editor.p5js.org/jacinta/sketches/WXu_H2HHp)
